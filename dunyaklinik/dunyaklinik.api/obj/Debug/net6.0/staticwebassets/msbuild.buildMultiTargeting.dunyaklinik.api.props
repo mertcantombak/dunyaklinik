@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\dunyaklinik.api.props" />
+</Project>

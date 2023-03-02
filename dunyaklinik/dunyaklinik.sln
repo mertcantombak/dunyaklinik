@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dunyaklinik.api", "dunyaklinik.api\dunyaklinik.api.csproj", "{FFBA0734-BEEA-42A2-8DAC-8223B0B25FCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dunyaklinik.core", "dunyaklinik.core\dunyaklinik.core.csproj", "{327C381A-0D28-4971-B74C-6B71D7470511}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dunyaklinik.dataaccess", "dunyaklinik.dataaccess\dunyaklinik.dataaccess.csproj", "{66DF1A40-FE13-4346-AC58-CC9B8C7EEF3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dunyaklinik.entities", "dunyaklinik.entities\dunyaklinik.entities.csproj", "{0F232AD3-7217-4A30-9CA5-1112D9E5ECF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dunyaklinik.business", "dunyaklinik.business\dunyaklinik.business.csproj", "{0D769654-F2B5-415D-A82D-07FAA2FD4BD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dunyaklinik.api", "dunyaklinik.api\dunyaklinik.api.csproj", "{82663DCA-88C7-4674-971D-765D582B6213}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FFBA0734-BEEA-42A2-8DAC-8223B0B25FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFBA0734-BEEA-42A2-8DAC-8223B0B25FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFBA0734-BEEA-42A2-8DAC-8223B0B25FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFBA0734-BEEA-42A2-8DAC-8223B0B25FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327C381A-0D28-4971-B74C-6B71D7470511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327C381A-0D28-4971-B74C-6B71D7470511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327C381A-0D28-4971-B74C-6B71D7470511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327C381A-0D28-4971-B74C-6B71D7470511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DF1A40-FE13-4346-AC58-CC9B8C7EEF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DF1A40-FE13-4346-AC58-CC9B8C7EEF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DF1A40-FE13-4346-AC58-CC9B8C7EEF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DF1A40-FE13-4346-AC58-CC9B8C7EEF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F232AD3-7217-4A30-9CA5-1112D9E5ECF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F232AD3-7217-4A30-9CA5-1112D9E5ECF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F232AD3-7217-4A30-9CA5-1112D9E5ECF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F232AD3-7217-4A30-9CA5-1112D9E5ECF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D769654-F2B5-415D-A82D-07FAA2FD4BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D769654-F2B5-415D-A82D-07FAA2FD4BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D769654-F2B5-415D-A82D-07FAA2FD4BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D769654-F2B5-415D-A82D-07FAA2FD4BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82663DCA-88C7-4674-971D-765D582B6213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82663DCA-88C7-4674-971D-765D582B6213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82663DCA-88C7-4674-971D-765D582B6213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82663DCA-88C7-4674-971D-765D582B6213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

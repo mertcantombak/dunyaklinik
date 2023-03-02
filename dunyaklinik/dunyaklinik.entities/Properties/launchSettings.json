@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "dunyaklinik.entities": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59911;http://localhost:59914"
+    }
+  }
+}

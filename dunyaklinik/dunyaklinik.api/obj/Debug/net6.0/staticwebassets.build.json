@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GGo+deysTJaf7aZ6tKaHXjFQQWouOHUD5Q0HpFAhzrg=",
+  "Source": "dunyaklinik.api",
+  "BasePath": "_content/dunyaklinik.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
