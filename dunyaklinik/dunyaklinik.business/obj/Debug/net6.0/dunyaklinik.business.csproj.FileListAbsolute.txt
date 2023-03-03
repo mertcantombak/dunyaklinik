@@ -1,8 +1,3 @@
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.csproj.AssemblyReference.cache
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.GeneratedMSBuildEditorConfig.editorconfig
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.AssemblyInfoInputs.cache
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.AssemblyInfo.cs
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.csproj.CoreCompileInputs.cache
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.business.deps.json
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.business.dll
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.business.pdb
@@ -12,6 +7,11 @@ D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\n
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.core.pdb
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.dataaccess.pdb
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\bin\Debug\net6.0\dunyaklinik.entities.pdb
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.csproj.AssemblyReference.cache
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.AssemblyInfoInputs.cache
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.AssemblyInfo.cs
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.csproj.CoreCompileInputs.cache
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.csproj.CopyComplete
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\dunyaklinik.business.dll
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.business\obj\Debug\net6.0\refint\dunyaklinik.business.dll

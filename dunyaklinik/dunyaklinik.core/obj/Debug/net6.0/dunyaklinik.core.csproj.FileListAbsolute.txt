@@ -1,12 +1,12 @@
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.deps.json
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.runtimeconfig.json
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.dll
+D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.pdb
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.csproj.AssemblyReference.cache
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.GeneratedMSBuildEditorConfig.editorconfig
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.AssemblyInfoInputs.cache
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.AssemblyInfo.cs
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.csproj.CoreCompileInputs.cache
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.deps.json
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.runtimeconfig.json
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.dll
-D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\bin\Debug\net6.0\dunyaklinik.core.pdb
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.dll
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\refint\dunyaklinik.core.dll
 D:\PROJECTS\NetProjects\dunyaklinik\dunyaklinik\dunyaklinik.core\obj\Debug\net6.0\dunyaklinik.core.pdb
