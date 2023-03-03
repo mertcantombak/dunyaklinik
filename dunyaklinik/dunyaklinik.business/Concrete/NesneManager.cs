@@ -13,6 +13,12 @@ namespace dunyaklinik.business.Concrete
     public class NesneManager : INesneService
     {
         private INesneDal _nesneDal;
+
+        public NesneManager(INesneDal nesneDal)
+        {
+            _nesneDal = nesneDal;
+        }
+
         public void Add(nesne nesne)
         {
             _nesneDal.Add(nesne);

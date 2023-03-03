@@ -17,7 +17,8 @@ builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<INesneService, NesneManager>();
 builder.Services.AddScoped<INesneDal, EfNesneDal>();
-
+builder.Services.AddControllers();
+builder.Services.AddDbContext<DunyaKlinikContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
