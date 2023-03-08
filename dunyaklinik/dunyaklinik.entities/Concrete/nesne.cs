@@ -15,5 +15,6 @@ namespace dunyaklinik.entities.Concrete
         [Key]
         public int id { get; set; }
         public string ad { get; set; }
+        public bool active { get; set; }
     }
 }

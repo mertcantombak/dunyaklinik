@@ -9,27 +9,20 @@ namespace dunyaklinik.api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private INesneService _nesneService;
+        private IUserService _userService;
 
-        public UserController(INesneService userService)
+        public UserController(IUserService userService)
         {
-            _nesneService = userService;
+            _userService = userService;
         }
         [HttpGet]
-        public List<nesne> GetUsers()
+        public List<User> GetUsers()
         {
-            var users = _nesneService.GetList();
+            var users = _userService.GetList();
 
             return users;
         }
         [HttpPost]
-        public void AddNesnePost()
-        {
-            nesne n = new nesne();
-            n.ad = "BaMe";
-            _nesneService.Add(n);
-        }
-        /*[HttpPost]
         public void AddUserPost()
         {
             User user = new User(); 
@@ -50,6 +43,6 @@ namespace dunyaklinik.api.Controllers
             user.password = "1";
             user.nationality = "Turkish";
             _userService.Add(user);
-        }*/
+        }
     }
 }
