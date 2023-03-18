@@ -16,6 +16,7 @@ namespace dunyaklinik.api.Controllers
             _userService = userService;
         }
         [HttpGet]
+        [Route("GetUsers")]
         public List<User> GetUsers()
         {
             var users = _userService.GetList();
@@ -23,6 +24,7 @@ namespace dunyaklinik.api.Controllers
             return users;
         }
         [HttpPost]
+        [Route("AddUserPost")]
         public void AddUserPost()
         {
             User user = new User(); 
