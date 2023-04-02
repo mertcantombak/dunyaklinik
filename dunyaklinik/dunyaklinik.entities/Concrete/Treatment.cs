@@ -1,13 +1,16 @@
-﻿using System;
+﻿using dunyaklinik.core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace dunyaklinik.entities.Concrete
 {
-    public class Treatment
+    [Table("treatment")]
+    public class Treatment : IEntity
     {
         [Key]
         public int id { get; set; }
