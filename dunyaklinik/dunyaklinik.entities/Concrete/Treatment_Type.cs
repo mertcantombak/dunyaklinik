@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dunyaklinik.core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace dunyaklinik.entities.Concrete
 {
     [Table("treatment_type")]
-    public class Treatment_Type
+    public class Treatment_Type : IEntity
     {
         [Key]
         public int id { get; set; }
