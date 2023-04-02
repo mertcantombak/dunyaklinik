@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace dunyaklinik.dataaccess.Abstract
 {
-    public interface ITreatment_TypeDal : IEntityRepository<Treatment_Type>
+    public interface ITreatmentTypeDal : IEntityRepository<TreatmentType>
     {
     }
 }

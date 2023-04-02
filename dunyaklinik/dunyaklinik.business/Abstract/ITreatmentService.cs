@@ -10,8 +10,8 @@ namespace dunyaklinik.business.Abstract
     public interface ITreatmentService
     {
         List<Treatment> GetList();
-        void Add(Treatment nesne);
-        void Update(Treatment nesne);
-        void Delete(Treatment nesne);
+        void Add(Treatment treatment );
+        void Update(Treatment treatment );
+        void Delete(Treatment treatment );
     }
 }

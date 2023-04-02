@@ -6,18 +6,17 @@ namespace dunyaklinik.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Treatment_TypeController : ControllerBase
+    public class TreatmentTypeController : ControllerBase
     {
-        private ITreatment_TypeService _service;
-        
-        public Treatment_TypeController(ITreatment_TypeService service)
+        private ITreatmentTypeService _service;        
+        public TreatmentTypeController(ITreatmentTypeService service)
         {
             _service = service;
         }
 
         [HttpGet]
         [Route("GetTreatmentTypes")]
-        public List<Treatment_Type> GetTreatment_Types()
+        public List<TreatmentType> GetTreatmentTypes()
         {
             var treatment_types = _service.GetList();
             return treatment_types;

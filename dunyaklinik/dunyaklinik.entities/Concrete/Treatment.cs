@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace dunyaklinik.entities.Concrete
 {
-    [Table("treatment")]
     public class Treatment : IEntity
     {
         [Key]

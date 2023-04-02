@@ -12,8 +12,8 @@ namespace dunyaklinik.dataaccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseMySQL("Server=77.92.97.2;User ID=db_admin;Password=^4k648awD;Database=dunyaklinik_main");
-            optionsBuilder.UseMySQL("Server=localhost; Port=3306;User ID=db_admin;Password=^4k648awD; Database=dunyaklinik_main");
+            optionsBuilder.UseMySQL("Server=77.92.97.2;User ID=db_admin;Password=^4k648awD;Database=dunyaklinik_main");
+            //optionsBuilder.UseMySQL("Server=localhost; Port=3306;User ID=db_admin;Password=^4k648awD; Database=dunyaklinik_main");
         }
         public DbSet<User> users { get; set; }
         public DbSet<nesne> deneme { get; set; }
@@ -33,6 +33,6 @@ namespace dunyaklinik.dataaccess.Concrete.EntityFramework
         public DbSet<Treatment_Documents> treatment_documents { get; set; }
         public DbSet<Treatment_Exercises> treatment_exercises { get; set; }
         public DbSet<Treatment_Service_Rating> treatment_service_ratings { get; set; }
-        public DbSet<Treatment_Type> treatment_types { get; set; }
+        public DbSet<TreatmentType> treatment_types { get; set; }
     }
 }

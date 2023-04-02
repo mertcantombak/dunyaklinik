@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace dunyaklinik.dataaccess.Concrete.EntityFramework
 {
-    public class EfTreatment_TypeDal : EfEntityRepositoryBase<Treatment_Type, DunyaKlinikContext>, ITreatment_TypeDal
+    public class EfTreatmentTypeDal : EfEntityRepositoryBase<TreatmentType, DunyaKlinikContext>, ITreatmentTypeDal
     {
     }
 }

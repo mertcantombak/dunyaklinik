@@ -18,7 +18,7 @@ namespace dunyaklinik.business.Concrete
         }   
         public void Add(Treatment treatment)
         {
-            _treatmentDal.Add(treatment)
+            _treatmentDal.Add(treatment);
         }
 
         public void Delete(Treatment treatment)
