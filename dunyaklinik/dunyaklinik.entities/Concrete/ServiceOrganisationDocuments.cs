@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dunyaklinik.core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace dunyaklinik.entities.Concrete
 {
-    public class Service_User_Documents
+    public class ServiceOrganisationDocuments : IEntity
     {
         [Key]
         public int id { get; set; }
-        public int user_id { get; set; }
+        public int organisation_id { get; set; }
         public string document_path { get; set; }
         public bool is_deleted { get; set; }
-        public DateTime updated_time { get; set; }
-        public DateTime created_time { get; set; }
+        public DateTime? created_time { get; set; }
+        public DateTime? updated_time { get; set; }
     }
 }

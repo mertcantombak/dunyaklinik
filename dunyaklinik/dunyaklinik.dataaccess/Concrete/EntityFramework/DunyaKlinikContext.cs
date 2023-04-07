@@ -20,14 +20,14 @@ namespace dunyaklinik.dataaccess.Concrete.EntityFramework
         public DbSet<Appointments> appointments { get; set; }
         public DbSet<ClientUsers> client_users { get; set; }
         public DbSet<LogLogins> log_logins { get; set; }
-        public DbSet<Service_Branch_Documents> service_branch_documents { get; set; }
-        public DbSet<Service_Branch_General> service_branch_generals { get; set; }
-        public DbSet<Service_Organisation> service_organisations { get; set; }
-        public DbSet<Service_Organisation_Documents> service_oganisation_documents { get; set; }
-        public DbSet<Service_User_Documents> service_user_documents { get; set; }
-        public DbSet<Service_User_Professions> service_user_professions { get; set; }
-        public DbSet<Service_User_Title_Names> service_user_title_names { get; set; }
-        public DbSet<Service_Users> service_users { get; set; }
+        public DbSet<ServiceBranchDocuments> service_branch_documents { get; set; }
+        public DbSet<ServiceBranchGeneral> service_branch_generals { get; set; }
+        public DbSet<ServiceOrganisation> service_organisations { get; set; }
+        public DbSet<ServiceOrganisationDocuments> service_organisation_documents { get; set; }
+        public DbSet<ServiceUserDocuments> service_user_documents { get; set; }
+        public DbSet<ServiceUserProfessions> service_user_professions { get; set; }
+        public DbSet<ServiceUserTitleNames> service_user_title_names { get; set; }
+        public DbSet<ServiceUsers> service_users { get; set; }
         public DbSet<Treatments> treatments { get; set; }
         public DbSet<TreatmentClientRatings> treatment_client_ratings { get; set; }
         public DbSet<TreatmentDocuments> treatment_documents { get; set; }

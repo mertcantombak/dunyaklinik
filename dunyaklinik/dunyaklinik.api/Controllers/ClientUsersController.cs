@@ -1,6 +1,5 @@
 ﻿using dunyaklinik.business.Abstract;
 using dunyaklinik.entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dunyaklinik.api.Controllers

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dunyaklinik.core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace dunyaklinik.entities.Concrete
 {
-    public class Service_Users
+    public class ServiceUsers : IEntity
     {
         [Key]
         public int id { get; set; }
@@ -18,8 +19,8 @@ namespace dunyaklinik.entities.Concrete
         public string description { get; set; }
         public bool is_active { get; set; }
         public bool is_deleted { get; set; }
-        public DateTime created_time { get; set; }
-        public DateTime updated_time { get; set; }
+        public DateTime? created_time { get; set; }
+        public DateTime? updated_time { get; set; }
         public int branch_id { get; set; }
     }
 }
