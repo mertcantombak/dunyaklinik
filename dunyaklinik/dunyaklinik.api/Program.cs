@@ -13,16 +13,30 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUserService, UserManager>();
-builder.Services.AddScoped<IUserDal, EfUserDal>();
+builder.Services.AddScoped<IUsersService, UsersManager>();
+builder.Services.AddScoped<IUsersDal, EfUsersDal>();
 builder.Services.AddScoped<INesneService, NesneManager>();
 builder.Services.AddScoped<INesneDal, EfNesneDal>();
-builder.Services.AddScoped<ITreatmentService, TreatmentManager>();
-builder.Services.AddScoped<ITreatmentDal, EfTreatmentDal>();
-builder.Services.AddScoped<ITreatmentTypeService, TreatmentTypeManager>();
-builder.Services.AddScoped<ITreatmentTypeDal, EfTreatmentTypeDal>();
-builder.Services.AddControllers();
+builder.Services.AddScoped<ITreatmentsService, TreatmentsManager>();
+builder.Services.AddScoped<ITreatmentsDal, EfTreatmentsDal>();
+builder.Services.AddScoped<ITreatmentTypesService, TreatmentTypesManager>();
+builder.Services.AddScoped<ITreatmentTypesDal, EfTreatmentTypesDal>();
+builder.Services.AddScoped<ITreatmentServiceRatingsService, TreatmentServiceRatingsManager>();
+builder.Services.AddScoped<ITreatmentServiceRatingsDal, EfTreatmentServiceRatingsDal>();
+builder.Services.AddScoped<ITreatmentExercisesService, TreatmentExercisesManager>();
+builder.Services.AddScoped<ITreatmentExercisesDal, EfTreatmentExercisesDal>();
+builder.Services.AddScoped<ITreatmentDocumentsService, TreatmentDocumentsManager>();
+builder.Services.AddScoped<ITreatmentDocumentsDal, EfTratmentDocumentsDal>();
+builder.Services.AddScoped<ITreatmentClientRatingsService, TreatmentClientRatingsManager>();
+builder.Services.AddScoped<ITreatmentClientRatingsDal, EfTreatmentClientRatingsDal>();
+builder.Services.AddScoped<ILogLoginsService, LogLoginsManager>();
+builder.Services.AddScoped<ILogLoginsDal, EfLogLoginsDal>();
+builder.Services.AddScoped<IAppointmentsService, AppointmentsManager>();
+builder.Services.AddScoped<IAppointmentsDal, EfAppointmentsDal>();
+builder.Services.AddScoped<IClientUsersService, ClientUsersManager>();
+builder.Services.AddScoped<IClientUsersDal, EfClientUsersDal>();
 builder.Services.AddDbContext<DunyaKlinikContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
