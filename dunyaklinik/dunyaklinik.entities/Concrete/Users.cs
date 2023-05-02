@@ -24,6 +24,7 @@ namespace dunyaklinik.entities.Concrete
         public DateTime birth_date { get; set; }
         public string phone_code { get; set; }
         public string phone { get; set; }
+        public string profile_image_path { get; set; }
         public bool is_active { get; set; }
         public bool is_phone_verified { get; set; }
         public bool is_mail_verified { get; set; }
