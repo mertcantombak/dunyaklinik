@@ -10,18 +10,32 @@ namespace dunyaklinik.entities.Concrete
 {
     public class ServiceOrganisation : IEntity
     {
-        [Key]
-        public int id { get; set; }
-        public string name { get; set; }
-        public string phone { get; set; }
-        public string phone_code { get; set; }
-        public string address { get; set; }
-        public string mail_address { get; set; }
-        public string description { get; set; }
-        public bool is_active { get; set; }
-        public bool is_deleted { get; set; }
-        public string fax { get; set; }
-        public DateTime? created_time { get; set; }
-        public DateTime? updated_time { get; set; }
+        public int Id { get; set; }
+
+        public string Name { get; set; } = null!;
+
+        public string? Phone { get; set; }
+
+        public string? PhoneCode { get; set; }
+
+        public string? Address { get; set; }
+
+        public string? MailAddress { get; set; }
+
+        public string? Description { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public string? Fax { get; set; }
+
+        public DateTime CreatedTime { get; set; }
+
+        public DateTime? UpdatedTime { get; set; }
+
+        public virtual ICollection<ServiceBranchGeneral> ServiceBranchGenerals { get; } = new List<ServiceBranchGeneral>();
+
+        public virtual ICollection<ServiceOrganisationDocument> ServiceOrganisationDocuments { get; } = new List<ServiceOrganisationDocument>();
     }
 }

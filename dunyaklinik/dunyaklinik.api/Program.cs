@@ -15,62 +15,59 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Test nesnesi
-builder.Services.AddScoped<INesneService, NesneManager>();
-builder.Services.AddScoped<INesneDal, EfNesneDal>();
+builder.Services.AddScoped<IDenemeService, DenemeManager>();
+builder.Services.AddScoped<IDenemeDal, EfDenemeDal>();
 
-builder.Services.AddScoped<IUsersService, UsersManager>();
-builder.Services.AddScoped<IUsersDal, EfUsersDal>();
+builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped<IUserDal, EfUserDal>();
 
-builder.Services.AddScoped<ITreatmentsService, TreatmentsManager>();
-builder.Services.AddScoped<ITreatmentsDal, EfTreatmentsDal>();
+builder.Services.AddScoped<ITreatmentService, TreatmentManager>();
+builder.Services.AddScoped<ITreatmentDal, EfTreatmentDal>();
 
-builder.Services.AddScoped<ITreatmentTypesService, TreatmentTypesManager>();
-builder.Services.AddScoped<ITreatmentTypesDal, EfTreatmentTypesDal>();
+builder.Services.AddScoped<ITreatmentTypeService, TreatmentTypeManager>();
+builder.Services.AddScoped<ITreatmentTypeDal, EfTreatmentTypeDal>();
 
-builder.Services.AddScoped<ITreatmentServiceRatingsService, TreatmentServiceRatingsManager>();
-builder.Services.AddScoped<ITreatmentServiceRatingsDal, EfTreatmentServiceRatingsDal>();
+builder.Services.AddScoped<ITreatmentServiceRatingService, TreatmentServiceRatingManager>();
+builder.Services.AddScoped<ITreatmentServiceRatingDal, EfTreatmentServiceRatingDal>();
 
-builder.Services.AddScoped<ITreatmentExercisesService, TreatmentExercisesManager>();
-builder.Services.AddScoped<ITreatmentExercisesDal, EfTreatmentExercisesDal>();
+builder.Services.AddScoped<ITreatmentExerciseService, TreatmentExerciseManager>();
+builder.Services.AddScoped<ITreatmentExerciseDal, EfTreatmentExerciseDal>();
 
-builder.Services.AddScoped<ITreatmentDocumentsService, TreatmentDocumentsManager>();
-builder.Services.AddScoped<ITreatmentDocumentsDal, EfTratmentDocumentsDal>();
+builder.Services.AddScoped<ITreatmentDocumentService, TreatmentDocumentManager>();
+builder.Services.AddScoped<ITreatmentDocumentDal, EfTratmentDocumentDal>();
 
-builder.Services.AddScoped<ITreatmentClientRatingsService, TreatmentClientRatingsManager>();
-builder.Services.AddScoped<ITreatmentClientRatingsDal, EfTreatmentClientRatingsDal>();
+builder.Services.AddScoped<ITreatmentClientRatingService, TreatmentClientRatingManager>();
+builder.Services.AddScoped<ITreatmentClientRatingDal, EfTreatmentClientRatingDal>();
 
-builder.Services.AddScoped<ILogLoginsService, LogLoginsManager>();
-builder.Services.AddScoped<ILogLoginsDal, EfLogLoginsDal>();
+builder.Services.AddScoped<ILogLoginService, LogLoginManager>();
+builder.Services.AddScoped<ILogLoginDal, EfLogLoginDal>();
 
-builder.Services.AddScoped<IAppointmentsService, AppointmentsManager>();
-builder.Services.AddScoped<IAppointmentsDal, EfAppointmentsDal>();
+builder.Services.AddScoped<IAppointmentService, AppointmentManager>();
+builder.Services.AddScoped<IAppointmentDal, EfAppointmentDal>();
 
-builder.Services.AddScoped<IClientUsersService, ClientUsersManager>();
-builder.Services.AddScoped<IClientUsersDal, EfClientUsersDal>();
-
-builder.Services.AddScoped<IServiceBranchDocumentsService, ServiceBranchDocumentsManager>();
-builder.Services.AddScoped<IServiceBranchDocumentsDal, EfServiceBranchDocumentsDal>();
+builder.Services.AddScoped<IServiceBranchDocumentService, ServiceBranchDocumentManager>();
+builder.Services.AddScoped<IServiceBranchDocumentDal, EfServiceBranchDocumentDal>();
 
 builder.Services.AddScoped<IServiceBranchGeneralService, ServiceBranchGeneralManager>();
 builder.Services.AddScoped<IServiceBranchGeneralDal, EfServiceBranchGeneralDal>();
 
-builder.Services.AddScoped<IServiceUsersService, ServiceUsersManager>();
-builder.Services.AddScoped<IServiceUsersDal, EfServiceUsersDal>();
+builder.Services.AddScoped<IServiceUserService, ServiceUserManager>();
+builder.Services.AddScoped<IServiceUserDal, EfServiceUserDal>();
 
 builder.Services.AddScoped<IServiceOrganisationService, ServiceOrganisationManager>();
 builder.Services.AddScoped<IServiceOrganisationDal, EfServiceOrganisationDal>();
 
-builder.Services.AddScoped<IServiceUserTitleNamesService, ServiceUserTitleNamesManager>();
-builder.Services.AddScoped<IServiceUserTitleNamesDal, EfServiceUserTitleNamesDal>();
+builder.Services.AddScoped<IServiceUserTitleNameService, ServiceUserTitleNameManager>();
+builder.Services.AddScoped<IServiceUserTitleNameDal, EfServiceUserTitleNameDal>();
 
-builder.Services.AddScoped<IServiceUserProfessionsService, ServiceUserProfessionsManager>();
-builder.Services.AddScoped<IServiceUserProfessionsDal, EfServiceUserProfessionsDal>();
+builder.Services.AddScoped<IServiceUserProfessionService, ServiceUserProfessionManager>();
+builder.Services.AddScoped<IServiceUserProfessionDal, EfServiceUserProfessionDal>();
 
-builder.Services.AddScoped<IServiceUserDocumentsService, ServiceUserDocumentsManager>();
-builder.Services.AddScoped<IServiceUserDocumentsDal, EfServiceUserDocumentsDal>();
+builder.Services.AddScoped<IServiceUserDocumentService, ServiceUserDocumentManager>();
+builder.Services.AddScoped<IServiceUserDocumentDal, EfServiceUserDocumentDal>();
 
-builder.Services.AddScoped<IServiceOrganisationDocumentsService, ServiceOrganisationDocumentsManager>();
-builder.Services.AddScoped<IServiceOrganisationDocumentsDal, EfServiceOrganisationDocumentsDal>();
+builder.Services.AddScoped<IServiceOrganisationDocumentService, ServiceOrganisationDocumentManager>();
+builder.Services.AddScoped<IServiceOrganisationDocumentDal, EfServiceOrganisationDocumentDal>();
 
 
 builder.Services.AddDbContext<DunyaKlinikContext>();
