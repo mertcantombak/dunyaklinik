@@ -12,7 +12,7 @@ namespace dunyaklinik.entities.Concrete
     {
         public int Id { get; set; }
 
-        public string TitleName { get; set; } = null!;
+        public string TitleName { get; set; }
 
         public bool IsActive { get; set; }
 
