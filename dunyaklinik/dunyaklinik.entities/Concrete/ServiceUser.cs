@@ -22,9 +22,8 @@ namespace dunyaklinik.entities.Concrete
         public string? ProfileImagePath { get; set; }
 
         public string? Description { get; set; }
-
+        public string? Address { get; set; }
         public bool? IsActive { get; set; }
-
         public bool IsDeleted { get; set; }
 
         public DateTime CreatedTime { get; set; }
