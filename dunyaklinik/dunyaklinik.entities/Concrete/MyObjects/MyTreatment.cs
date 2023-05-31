@@ -15,6 +15,7 @@ namespace dunyaklinik.entities.Concrete.MyObjects
         public string? ServiceUserLastname { get; set; }
         public string TreaatmentTypeName { get; set; }
         public string ProfessionName { get; set; }
+        public string ProfessionDescription { get; set; }
         public string TitleName { get; set; }
         public int UserId { get; set; }
         public string? Firstname { get; set; }
