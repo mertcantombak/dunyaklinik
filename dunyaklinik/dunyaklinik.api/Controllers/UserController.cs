@@ -1,4 +1,5 @@
 ﻿using dunyaklinik.business.Abstract;
+using dunyaklinik.dataaccess.Concrete.EntityFramework;
 using dunyaklinik.entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +11,12 @@ namespace dunyaklinik.api.Controllers
     public class UserController : ControllerBase
     {
         private IUserService _userService;
+        private readonly DunyaKlinikContext _context;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, DunyaKlinikContext context)
         {
             _userService = userService;
+            _context = context;
         }
         [HttpGet]
         [Route("GetUsers")]
@@ -23,29 +26,6 @@ namespace dunyaklinik.api.Controllers
 
             return users;
         }
-        //[HttpPost]
-        //[Route("AddUserPost")]
-        //public void AddUserPost()
-        //{
-        //    User user = new User(); 
-        //    user.BirthDate = DateTime.Now;
-        //    user.UpdatedTime = DateTime.Now;
-        //    user.MailAddress = "savcicagri7@gmail.com";
-        //    user.Phone = "5301666822";
-        //    user.PhoneCode = "+90";
-        //    user.Gender = "male";
-        //    user.Firstname = "Batı";
-        //    user.Lastname = "Savcı";
-        //    user.IsMailVerified = true;
-        //    user.IsActive= true;
-        //    user.IsPhoneVerified= true;
-        //    user.CreatedTime = DateTime.Now;
-        //    user.IdentityCardNo = "12345678912";
-        //    user.UserType = 1;
-        //    user.Password = "1";
-        //    user.Nationality = "Turkish";
-        //    _userService.Add(user);
-        //}
         [HttpPost]
         [Route("UserLogin")]
         public Result UserLogin()
@@ -83,7 +63,6 @@ namespace dunyaklinik.api.Controllers
             Result result = new Result();
             try
             {
-                var user_id = HttpContext.Request.Query["user_id"];
                 var firstname = HttpContext.Request.Query["firstname"];
                 var lastname = HttpContext.Request.Query["lastname"];
                 var identity_card_no = HttpContext.Request.Query["identity_card_no"];
@@ -94,8 +73,8 @@ namespace dunyaklinik.api.Controllers
                 var mail_address = HttpContext.Request.Query["mail_address"];
                 var birth_date = HttpContext.Request.Query["birth_date"];
 
-                //int userId = Convert.ToInt32(user_id);
                 DateTime birthDate = Convert.ToDateTime(birth_date);
+                
                 var user = new User
                 {
                     Firstname = firstname,
@@ -103,22 +82,29 @@ namespace dunyaklinik.api.Controllers
                     MailAddress = mail_address,
                     Phone = phone,
                     PhoneCode = phone_code,
-                    //birth_date= user.birthDate,
-                    BirthDate = DateTime.Now,
+                    BirthDate = birthDate.Date,
                     Gender = gender,
-                    IsActive = false,
-                    IsMailVerified = false,
-                    IsPhoneVerified = false,
+                    IsActive = true,
+                    IsMailVerified = true,
+                    IsPhoneVerified = true,
                     CreatedTime = DateTime.Now,
-                    //updated_time= DateTime.Now,
                     IdentityCardNo = identity_card_no,
                     Password = password,
                     UserType = 1,
                     Nationality = "Turkish",
                 };
-                _userService.Add(user);
-                result.id = 1;
-                result.message = "Kayıt Başarılı";
+                var haveUser = _context.Users.Any(q => q.IdentityCardNo== user.IdentityCardNo || q.Phone == user.Phone || q.MailAddress == user.MailAddress);
+                if (!haveUser)
+                {
+                    _userService.Add(user);
+                    result.id = 1;
+                    result.message = "Kayıt Başarılı";
+                }
+                else {
+                    result.id = -1;
+                    result.message = "İlgili bilgelere sahip hesap mevcut. Lütfen bilgilerinizi kontrol edin.";
+                }
+                
             }
             catch (Exception ex)
             {
