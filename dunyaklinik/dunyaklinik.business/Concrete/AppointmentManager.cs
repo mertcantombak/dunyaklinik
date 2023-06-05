@@ -4,6 +4,7 @@ using dunyaklinik.entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,14 @@ namespace dunyaklinik.business.Concrete
             _appointmentDal.Delete(appointment);
         }
 
-        public List<Appointment> GetList()
+        public Appointment Get(Expression<Func<Appointment, bool>> filter = null)
         {
-            return _appointmentDal.GetList();
+            return _appointmentDal.Get(filter);
+        }
+
+        public List<Appointment> GetList(Expression<Func<Appointment, bool>> filter = null)
+        {
+            return _appointmentDal.GetList(filter);
         }
 
         public void Update(Appointment appointment)

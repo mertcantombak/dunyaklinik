@@ -60,7 +60,7 @@ namespace dunyaklinik.dataaccess.Concrete.EntityFramework
 
                 entity.ToTable("appointments");
 
-                entity.HasIndex(e => e.UserId, "appointment_FK");
+                entity.HasIndex(e => e.UserId, "appointments_FK");
 
                 entity.HasIndex(e => e.ServiceUserId, "appointment_FK_1");
 
