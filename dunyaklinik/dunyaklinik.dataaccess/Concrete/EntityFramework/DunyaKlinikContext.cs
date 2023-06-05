@@ -340,6 +340,10 @@ namespace dunyaklinik.dataaccess.Concrete.EntityFramework
                     .HasMaxLength(500)
                     .HasDefaultValueSql("'NULL'")
                     .HasColumnName("description");
+                entity.Property(e => e.Address)
+                    .HasMaxLength(500)
+                    .HasDefaultValueSql("'NULL'")
+                    .HasColumnName("address");
                 entity.Property(e => e.IsActive)
                     .IsRequired()
                     .HasDefaultValueSql("'1'")

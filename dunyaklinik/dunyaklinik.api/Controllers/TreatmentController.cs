@@ -63,6 +63,7 @@ namespace dunyaklinik.api.Controllers
                 myTreatment.ServiceUserLastname = treatment.ServiceUser.User.Lastname;
                 myTreatment.TreaatmentTypeName = treatment.TreatmentType.Name;
                 myTreatment.ProfessionName = treatment.ServiceUser.Profession.ProfessionName;
+                myTreatment.ProfessionDescription = treatment.ServiceUser.Profession.Description;
                 myTreatment.TitleName = treatment.ServiceUser.Title.TitleName;
             }
             return myTreatment;

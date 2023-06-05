@@ -59,6 +59,7 @@ namespace dunyaklinik.api.Controllers
                 myAppointment.ServiceUserFirstname = appointment.ServiceUser.User.Firstname;
                 myAppointment.ServiceUserLastname = appointment.ServiceUser.User.Lastname;
                 myAppointment.ProfessionName = appointment.ServiceUser.Profession.ProfessionName;
+                myAppointment.ProfessionDescription = appointment.ServiceUser.Profession.Description;
                 myAppointment.TitleName = appointment.ServiceUser.Title.TitleName;
             }
             return myAppointment;
