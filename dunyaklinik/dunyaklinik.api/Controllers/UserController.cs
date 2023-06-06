@@ -3,6 +3,7 @@ using dunyaklinik.dataaccess.Concrete.EntityFramework;
 using dunyaklinik.entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace dunyaklinik.api.Controllers
 {
@@ -18,6 +19,7 @@ namespace dunyaklinik.api.Controllers
             _userService = userService;
             _context = context;
         }
+        #region Get-Methods
         [HttpGet]
         [Route("GetUsers")]
         public List<User> GetUsers()
@@ -56,55 +58,48 @@ namespace dunyaklinik.api.Controllers
             }
             return result;
         }
+        #endregion
+        #region Post-Methods
         [HttpPost]
         [Route("AddUserPost")]
-        public Result AddUserPost()
+        public async Task<Result> AddUserPostAsync()
         {
             Result result = new Result();
             try
             {
-                var firstname = HttpContext.Request.Query["firstname"];
-                var lastname = HttpContext.Request.Query["lastname"];
-                var identity_card_no = HttpContext.Request.Query["identity_card_no"];
-                var password = HttpContext.Request.Query["password"];
-                var phone = HttpContext.Request.Query["phone"];
-                var phone_code = HttpContext.Request.Query["phone_code"];
-                var gender = HttpContext.Request.Query["gender"];
-                var mail_address = HttpContext.Request.Query["mail_address"];
-                var birth_date = HttpContext.Request.Query["birth_date"];
-
-                DateTime birthDate = Convert.ToDateTime(birth_date);
-                
+                using StreamReader reader = new StreamReader(HttpContext.Request.Body);
+                string requestBody = await reader.ReadToEndAsync();
+                var userBody = JsonConvert.DeserializeObject<User>(requestBody);
                 var user = new User
                 {
-                    Firstname = firstname,
-                    Lastname = lastname,
-                    MailAddress = mail_address,
-                    Phone = phone,
-                    PhoneCode = phone_code,
-                    BirthDate = birthDate.Date,
-                    Gender = gender,
-                    IsActive = true,
-                    IsMailVerified = true,
+                    Password = userBody.Password,
+                    MailAddress = userBody.MailAddress,
+                    UserType = userBody.UserType,
+                    Firstname = userBody.Firstname,
+                    Lastname = userBody.Lastname,
+                    Nationality = userBody.Nationality,
+                    IdentityCardNo = userBody.IdentityCardNo,
+                    Gender = userBody.Gender,
+                    BirthDate = userBody.BirthDate,
+                    Phone = userBody.Phone,
+                    PhoneCode = userBody.PhoneCode,
                     IsPhoneVerified = true,
+                    IsMailVerified = true,
                     CreatedTime = DateTime.Now,
-                    IdentityCardNo = identity_card_no,
-                    Password = password,
-                    UserType = 1,
-                    Nationality = "Turkish",
                 };
-                var haveUser = _context.Users.Any(q => q.IdentityCardNo== user.IdentityCardNo || q.Phone == user.Phone || q.MailAddress == user.MailAddress);
+                var haveUser = _context.Users.Any(q => q.IdentityCardNo == user.IdentityCardNo || q.Phone == user.Phone || q.MailAddress == user.MailAddress);
                 if (!haveUser)
                 {
                     _userService.Add(user);
                     result.id = 1;
                     result.message = "Kayıt Başarılı";
                 }
-                else {
+                else
+                {
                     result.id = -1;
                     result.message = "İlgili bilgelere sahip hesap mevcut. Lütfen bilgilerinizi kontrol edin.";
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -114,5 +109,7 @@ namespace dunyaklinik.api.Controllers
             }
             return result;
         }
+        #endregion
+
     }
 }

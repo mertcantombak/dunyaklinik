@@ -27,7 +27,14 @@ namespace dunyaklinik.api.Controllers
         [Route("GetAppointments")]
         public List<Appointment> GetAppointments(int? UserId, int? ServiceUserId)
         {
-            var appointments = _service.GetList(q => q.ServiceUserId == ServiceUserId && q.IsActive);
+            var appointments = new List<Appointment>();
+            if (ServiceUserId != null)
+            {
+                appointments = _service.GetList(q => q.ServiceUserId == ServiceUserId && q.IsActive);
+            }                
+            else {
+                appointments = _service.GetList();
+            }                
 
             return appointments;
         }
@@ -110,13 +117,6 @@ namespace dunyaklinik.api.Controllers
                 using StreamReader reader = new StreamReader(HttpContext.Request.Body);
                 string requestBody = await reader.ReadToEndAsync();
                 var appointmentBody = JsonConvert.DeserializeObject<Appointment>(requestBody);
-                //var appointment = new Appointment
-                //{
-                //    Id = appointmentBody.Id,
-                //    UpdatedTime = DateTime.Now,
-                //    IsActive = false,
-                //    IsDeleted = true
-                //};
                 var appointment = _service.Get(q => q.Id == appointmentBody.Id);
                 if(appointment != null)
                 {
