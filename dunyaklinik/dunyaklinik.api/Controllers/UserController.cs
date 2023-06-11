@@ -1,6 +1,7 @@
 ﻿using dunyaklinik.business.Abstract;
 using dunyaklinik.dataaccess.Concrete.EntityFramework;
 using dunyaklinik.entities.Concrete;
+using dunyaklinik.entities.Concrete.MyObjects;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -21,12 +22,20 @@ namespace dunyaklinik.api.Controllers
         }
         #region Get-Methods
         [HttpGet]
-        [Route("GetUsers")]
-        public List<User> GetUsers()
+        [Route("GetUserByUserId")]
+        public MyUser GetUserByUserId(int userId)
         {
-            var users = _userService.GetList();
-
-            return users;
+            MyUser user = new MyUser();
+            var u = _userService.Get(q => q.UserId == userId);
+            user.Firstname = u.Firstname;
+            user.Lastname = u.Lastname;
+            user.PhoneCode = u.PhoneCode;
+            user.Phone = u.Phone;
+            user.MailAddress = u.MailAddress;
+            user.IdentityCardNo = u.IdentityCardNo;
+            user.Gender = u.Gender;
+            user.BirthDateStr = u.BirthDate.Value.ToShortDateString();
+            return user;
         }
         [HttpPost]
         [Route("UserLogin")]

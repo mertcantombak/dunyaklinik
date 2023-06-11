@@ -1,9 +1,11 @@
 ﻿using dunyaklinik.business.Abstract;
 using dunyaklinik.dataaccess.Abstract;
+using dunyaklinik.dataaccess.Concrete.EntityFramework;
 using dunyaklinik.entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +33,10 @@ namespace dunyaklinik.business.Concrete
         public List<User> GetList()
         {
             return _userDal.GetList();
+        }
+        public User Get(Expression<Func<User, bool>> filter = null)
+        {
+            return _userDal.Get(filter);
         }
 
         public User GetUser(string MailAddress, string Password)
