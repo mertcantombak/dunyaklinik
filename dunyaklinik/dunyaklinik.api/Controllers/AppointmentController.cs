@@ -24,19 +24,42 @@ namespace dunyaklinik.api.Controllers
         
         #region Get-Methods
         [HttpGet]
-        [Route("GetAppointments")]
-        public List<Appointment> GetAppointments(int? UserId, int? ServiceUserId)
+        [Route("GetUserAppointments")]
+        public List<MyAppointment> GetUserAppointments(int UserId, bool? isActive, bool? isDeleted, bool? isConfirmed)
         {
-            var appointments = new List<Appointment>();
-            if (ServiceUserId != null)
+            var myAppointments = new List<MyAppointment>();
+            var appointments = _context.Appointments
+                .Include(q => q.User)
+                .Include(q => q.ServiceUser.User)
+                .Include(q => q.ServiceUser.Title)
+                .Include(q => q.ServiceUser.Profession)
+                .Where(q => q.UserId == UserId && q.IsActive == isActive && q.IsDeleted == isDeleted && q.IsConfirmed == isConfirmed)
+                .OrderByDescending(q => q.AppointmentTime)
+                .ToList();
+            if (appointments.Any())
             {
-                appointments = _service.GetList(q => q.ServiceUserId == ServiceUserId && q.IsActive);
-            }                
-            else {
-                appointments = _service.GetList();
-            }                
-
-            return appointments;
+                foreach (var appointment in appointments)
+                {
+                    MyAppointment myAppointment = new MyAppointment();
+                    myAppointment.Id = appointment.Id;
+                    myAppointment.UserId = appointment.UserId;
+                    myAppointment.Firstname = appointment.User.Firstname;
+                    myAppointment.Lastname = appointment.User.Lastname;
+                    myAppointment.AppointmentTime = appointment.AppointmentTime;
+                    myAppointment.Firstname = appointment.User.Firstname;
+                    myAppointment.IsActive = appointment.IsActive;
+                    myAppointment.IsConfirmed = appointment.IsConfirmed;
+                    myAppointment.IsDeleted = appointment.IsDeleted;
+                    myAppointment.ServiceUserId = appointment.ServiceUserId;
+                    myAppointment.ServiceUserFirstname = appointment.ServiceUser.User.Firstname;
+                    myAppointment.ServiceUserLastname = appointment.ServiceUser.User.Lastname;
+                    myAppointment.ProfessionName = appointment.ServiceUser.Profession.ProfessionName;
+                    myAppointment.ProfessionDescription = appointment.ServiceUser.Profession.Description;
+                    myAppointment.TitleName = appointment.ServiceUser.Title.TitleName;
+                    myAppointments.Add(myAppointment);
+                }
+            }
+            return myAppointments;
         }
 
         [HttpGet]
