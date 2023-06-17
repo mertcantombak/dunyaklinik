@@ -16,6 +16,23 @@ namespace dunyaklinik.api.Controllers
         private readonly DunyaKlinikContext _context;
         private IAppointmentService _service;
 
+        [HttpGet]
+        [Route("GetAppointments")]
+        public List<Appointment> GetAppointments(int? UserId, int? ServiceUserId)
+        {
+            var appointments = new List<Appointment>();
+            if (ServiceUserId != null)
+            {
+                appointments = _service.GetList(q => q.ServiceUserId == ServiceUserId && q.IsActive);
+            }
+            else
+            {
+                appointments = _service.GetList();
+            }
+
+            return appointments;
+        }
+
         public AppointmentController(IAppointmentService service, DunyaKlinikContext context)
         {
             _context = context;
