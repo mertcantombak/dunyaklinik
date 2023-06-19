@@ -149,20 +149,18 @@ namespace dunyaklinik.api.Controllers
 
         [HttpPost]
         [Route("DeleteAppointmentById")]
-        public async Task<Result> DeleteAppointmentById()
+        public async Task<Result> DeleteAppointmentById(int id)
         {
             Result result = new Result();
             try
             {
-                using StreamReader reader = new StreamReader(HttpContext.Request.Body);
-                string requestBody = await reader.ReadToEndAsync();
-                var appointmentBody = JsonConvert.DeserializeObject<Appointment>(requestBody);
-                var appointment = _service.Get(q => q.Id == appointmentBody.Id);
+                var appointment = _service.Get(q => q.Id == id);
                 if(appointment != null)
                 {
                     appointment.UpdatedTime = DateTime.Now;
                     appointment.IsActive = false;
                     appointment.IsDeleted = true;
+                    appointment.IsConfirmed = false;
                     _service.Update(appointment);
                     result.id = 1;
                     result.message = "Randevu başarıyla pasife alındı.";
