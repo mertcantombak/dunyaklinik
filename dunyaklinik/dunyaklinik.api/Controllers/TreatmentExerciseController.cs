@@ -16,12 +16,16 @@ namespace dunyaklinik.api.Controllers
         }
         [HttpGet]
         [Route("GetTreatmentExercises")]
-        public List<TreatmentExercise> GetTreatmentExercises(int? TreatmentId)
+        public List<TreatmentExercise> GetTreatmentExercises(int? TreatmentId, bool? IsDeleted)
         {
             var treatmentExercises = new List<TreatmentExercise>();
-            if(TreatmentId != null)
+            if(TreatmentId != null && IsDeleted != null)
             {
-                treatmentExercises = _service.GetList(q => q.TreatmentId == TreatmentId && !q.IsDeleted);
+                treatmentExercises = _service.GetList(q => q.TreatmentId == TreatmentId && q.IsDeleted == IsDeleted);
+            }
+            else if(TreatmentId != null)
+            {
+                treatmentExercises = _service.GetList(q => q.TreatmentId == TreatmentId);
             }
             else
             {
