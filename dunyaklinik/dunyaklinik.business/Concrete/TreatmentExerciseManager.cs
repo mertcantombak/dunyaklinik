@@ -4,6 +4,7 @@ using dunyaklinik.entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,9 @@ namespace dunyaklinik.business.Concrete
             _treatmentExerciseDal.Delete(treatmentExercise);
         }
 
-        public List<TreatmentExercise> GetList()
+        public List<TreatmentExercise> GetList(Expression<Func<TreatmentExercise, bool>> filter = null)
         {
-            return _treatmentExerciseDal.GetList();
+            return _treatmentExerciseDal.GetList(filter);
         }
 
         public void Update(TreatmentExercise treatmentExercise)
