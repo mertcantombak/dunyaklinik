@@ -2,6 +2,7 @@
 using dunyaklinik.dataaccess.Concrete.EntityFramework;
 using dunyaklinik.entities.Concrete;
 using dunyaklinik.entities.Concrete.MyObjects;
+using MernisService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -74,6 +75,7 @@ namespace dunyaklinik.api.Controllers
         public async Task<Result> AddUserPostAsync()
         {
             Result result = new Result();
+            bool kimlikDurum = false;
             try
             {
                 using StreamReader reader = new StreamReader(HttpContext.Request.Body);
@@ -97,18 +99,30 @@ namespace dunyaklinik.api.Controllers
                     CreatedTime = DateTime.Now,
                 };
                 var haveUser = _context.Users.Any(q => q.IdentityCardNo == user.IdentityCardNo || q.Phone == user.Phone || q.MailAddress == user.MailAddress);
-                if (!haveUser)
+                int dogumYil = user.BirthDate.Value.Year;
+                long tc = long.Parse(user.IdentityCardNo);
+                var client = new MernisService.KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
+                var response = await client.TCKimlikNoDogrulaAsync(tc, user.Firstname.Trim(), user.Lastname.Trim(), dogumYil);
+                kimlikDurum = response.Body.TCKimlikNoDogrulaResult;
+                if (kimlikDurum)
                 {
-                    _userService.Add(user);
-                    result.id = 1;
-                    result.message = "Kayıt Başarılı";
+                    if (!haveUser)
+                    {
+                        _userService.Add(user);
+                        result.id = 1;
+                        result.message = "Kayıt Başarılı";
+                    }
+                    else
+                    {
+                        result.id = -1;
+                        result.message = "İlgili bilgelere sahip hesap mevcut. Lütfen bilgilerinizi kontrol edin.";
+                    }
                 }
                 else
                 {
                     result.id = -1;
-                    result.message = "İlgili bilgelere sahip hesap mevcut. Lütfen bilgilerinizi kontrol edin.";
+                    result.message = "Girilen kimlik bilgileri kontrol edilmeli. Kayıt yapılamadı.";
                 }
-
             }
             catch (Exception ex)
             {

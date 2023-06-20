@@ -90,7 +90,7 @@ namespace dunyaklinik.api.Controllers
                 .Include(q => q.ServiceUser.Title)
                 .Include(q => q.ServiceUser.Profession)
                 .OrderByDescending(q => q.AppointmentTime)
-                .FirstOrDefault(q => q.UserId == UserId && q.IsActive && !q.IsDeleted);
+                .FirstOrDefault(q => q.UserId == UserId && q.IsActive && !q.IsDeleted && !q.IsConfirmed);
             if (appointment != null)
             {
                 myAppointment.Id = appointment.Id;
