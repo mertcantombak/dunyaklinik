@@ -68,5 +68,51 @@ namespace dunyaklinik.api.Controllers
             }
             return myTreatment;
         }
+        [HttpGet]
+        [Route("GetTreatmentListByUserId")]
+        public List<MyTreatment> GetTreatmentListByUserId(int UserId, bool? IsFinished)
+        {
+            List<MyTreatment> myTreatments = new List<MyTreatment>();
+            var treatments = _context.Treatments
+                .Include(q => q.User)
+                .Include(q => q.ServiceUser.User)
+                .Include(q => q.ServiceUser.Title)
+                .Include(q => q.ServiceUser.Profession)
+                .Include(q => q.TreatmentClientRatings)
+                .Include(q => q.TreatmentDocuments)
+                .Include(q => q.TreatmentExercises)
+                .Include(q => q.TreatmentServiceRatings)
+                .Include(q => q.TreatmentType)
+                .OrderByDescending(q => q.StartTime)
+                .Where(q => q.UserId == UserId && !q.IsDeleted && q.IsFinished == IsFinished)
+                .ToList();
+            if (treatments.Any())
+            {
+                foreach (var treatment in treatments)
+                {
+                    MyTreatment myTreatment = new MyTreatment();
+                    myTreatment.Id = treatment.Id;
+                    myTreatment.ServiceUserId = treatment.ServiceUserId;
+                    myTreatment.UserId = treatment.UserId;
+                    myTreatment.TreatmentTypeId = treatment.TreatmentTypeId;
+                    myTreatment.Firstname = treatment.User.Firstname;
+                    myTreatment.Lastname = treatment.User.Lastname;
+                    myTreatment.StartTime = treatment.StartTime;
+                    myTreatment.EndTime = treatment.EndTime;
+                    myTreatment.Explanation = treatment.Explanation;
+                    myTreatment.IsDeleted = treatment.IsDeleted;
+                    myTreatment.IsFinished = treatment.IsFinished;
+                    myTreatment.IsTransferred = treatment.IsTransferred;
+                    myTreatment.ServiceUserFirstname = treatment.ServiceUser.User.Firstname;
+                    myTreatment.ServiceUserLastname = treatment.ServiceUser.User.Lastname;
+                    myTreatment.TreaatmentTypeName = treatment.TreatmentType.Name;
+                    myTreatment.ProfessionName = treatment.ServiceUser.Profession.ProfessionName;
+                    myTreatment.ProfessionDescription = treatment.ServiceUser.Profession.Description;
+                    myTreatment.TitleName = treatment.ServiceUser.Title.TitleName;
+                    myTreatments.Add(myTreatment);
+                }
+            }
+            return myTreatments;
+        }
     }
 }
